@@ -40,18 +40,3 @@ function PriorityQueue(){
         return this.data.size === 0;
     }
 }
-
-
-p = new PriorityQueue();
-p.insert(1,5);
-p.insert(2,6);
-p.insert(3,7);
-p.insert(4,8);
-p.insert(5,9);
-p.removeMin();
-p.removeMin();
-p.removeMin();
-p.removeMin();
-p.removeMin();
-
-console.log(p.isEmpty());
