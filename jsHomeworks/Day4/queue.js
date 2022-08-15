@@ -31,11 +31,3 @@ function Queue(){
         return this.arr.length === 0;
     }
 }
-
-q = new Queue();
-q.enqueue(5);
-q.enqueue(6);
-q.dequeue();
-q.dequeue();
-
-console.log(q.first());
