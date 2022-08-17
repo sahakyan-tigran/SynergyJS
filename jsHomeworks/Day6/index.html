@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #employees {
+            box-sizing: border-box;
+            border: 1px solid black;
+        }
+        #avgSalary {
+            width: 300px;
+            height: 50px;
+            box-sizing: border-box;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<table id="employees">
+    <th>name</th>
+    <th>salary</th>
+    <th>birthday</th>
+    <th>employmentDate</th>
+</table>
+<br><br><br>
+<div id="avgSalary">
+
+
+</div>
+<script type="module">
+    import {Employee, production} from "./index.js";
+
+    alert("press\n getEmployees\n getAvgSalary\n q");
+    let answer = prompt("Enter a command : ");
+    func(answer);
+
+    function func(c) {
+        if(c === "getEmployees"){
+            for (let employee of production.employees) {
+                document.getElementById('employees').append(createRow(employee));
+            }
+            function createRow(employee) {
+                let newRow = document.createElement('tr');
+                newRow.append(createCell(employee.name),
+                    createCell(employee.salary),
+                    createCell(employee.birthday),createCell(employee.employmentDate))
+                return newRow;
+            }
+            function createCell(value) {
+                let cell = document.createElement('td');
+                cell.innerText = value;
+                return cell;
+            }
+        }
+        if(c === "getAvgSalary"){
+            let myDiv = document.getElementById('avgSalary');
+            myDiv.innerText = 'AvgSalary: ' + production.getAvgSalary();
+        }
+        if(c === 'q'){
+            alert("you are quited")
+        }
+    }
+</script>
+</body>
+</html>
